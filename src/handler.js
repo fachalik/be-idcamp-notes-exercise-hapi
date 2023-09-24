@@ -47,6 +47,29 @@ const getAllNotesHandler = () => ({
   },
 });
 
+const getDetailNoteHandler = (request, h) => {
+  const { id } = request.params;
+
+  const index = notes.findIndex((item) => item.id === id);
+
+  if (index !== -1) {
+    const response = h.response({
+      status: 'success',
+      message: 'Catatan berhasil didapatkan',
+      data: notes[index],
+    });
+    response.code(200);
+    return response;
+  }
+
+  const response = h.response({
+    status: 'fail',
+    message: 'catatan tidak didapatkan. id tidak sesuai',
+  });
+
+  return response;
+};
+
 const editNoteByIdHandler = (request, h) => {
   const { id } = request.params;
 
@@ -133,4 +156,5 @@ module.exports = {
   getNoteByIdHandler,
   deleteNoteByIdHandler,
   editNoteByIdHandler,
+  getDetailNoteHandler,
 };
