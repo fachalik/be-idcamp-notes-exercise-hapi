@@ -58,7 +58,6 @@ const getDetailNoteHandler = (request, h) => {
       message: 'Catatan berhasil didapatkan',
       data: notes[index],
     });
-    response.code(201);
     return response;
   }
 
@@ -90,7 +89,6 @@ const editNoteByIdHandler = (request, h) => {
       status: 'success',
       message: 'Catatan berhasil diupdate',
     });
-    response.code(201);
     return response;
   }
 
@@ -138,7 +136,6 @@ const deleteNoteByIdHandler = (request, h) => {
       status: 'success',
       message: 'Catatan Berhasil dihapus',
     });
-    response.code(201);
     return response;
   }
 
